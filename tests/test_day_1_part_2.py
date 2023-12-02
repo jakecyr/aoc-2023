@@ -78,3 +78,10 @@ def test_lines_with_digits_in_the_middle() -> None:
     eyf7gh8i
     """
     assert day_1_part_2.get_calibration_sum(puzzle_input) == 134
+
+
+def test_lines_with_more_than_one_digit_occurring() -> None:
+    puzzle_input = """
+    4five8ffive
+    """
+    assert day_1_part_2.get_calibration_sum(puzzle_input) == 45
