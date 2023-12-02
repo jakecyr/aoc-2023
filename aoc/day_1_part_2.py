@@ -1,20 +1,19 @@
 from helpers.read_file import read_file
 import re
 
-possible_digits: dict[str, str] = {
-    "one": "1",
-    "two": "2",
-    "three": "3",
-    "four": "4",
-    "five": "5",
-    "six": "6",
-    "seven": "7",
-    "eight": "8",
-    "nine": "9",
-}
-
 
 def get_calibration_sum(puzzle_input: str) -> int:
+    possible_digits: dict[str, str] = {
+        "one": "1",
+        "two": "2",
+        "three": "3",
+        "four": "4",
+        "five": "5",
+        "six": "6",
+        "seven": "7",
+        "eight": "8",
+        "nine": "9",
+    }
     lines: list[str] = puzzle_input.split("\n")
     sum = 0
 
