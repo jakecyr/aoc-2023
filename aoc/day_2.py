@@ -22,25 +22,30 @@ class Game:
     sets: list[BagConfiguration]
 
 
+def is_game_possible(bag_configuration: BagConfiguration, game: Game) -> bool:
+    failed = False
+    for game_set in game.sets:
+        if game_set.red > bag_configuration.red:
+            return False
+        elif game_set.blue > bag_configuration.blue:
+            return False
+        elif game_set.green > bag_configuration.green:
+            return False
+
+    if not failed:
+        return True
+
+    return False
+
+
 def get_possible_games(
-    bag_configuration: BagConfiguration, games: list[Game]
+    bag_configuration: BagConfiguration,
+    games: list[Game],
 ) -> list[Game]:
     possible_games: list[Game] = []
 
     for game in games:
-        failed = False
-        for game_set in game.sets:
-            if game_set.red > bag_configuration.red:
-                failed = True
-                break
-            elif game_set.blue > bag_configuration.blue:
-                failed = True
-                break
-            elif game_set.green > bag_configuration.green:
-                failed = True
-                break
-
-        if not failed:
+        if is_game_possible(bag_configuration, game):
             possible_games.append(game)
 
     return possible_games
